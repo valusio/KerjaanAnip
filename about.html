@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Container -->
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-1/5 bg-gray-900 text-white p-6 shadow-lg flex flex-col justify-between">
+      <!-- Logo -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold tracking-wide">Logo PT.XYZ</h1>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="space-y-4">
+          <li>
+            <a href="index.html" class="block text-lg font-medium bg-gray-800 py-3 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-200">
+              Main Page
+            </a>
+          </li>
+          <li>
+            <a href="riwayat.html" class="block text-lg font-medium bg-gray-800 py-3 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-200">
+              Riwayat
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="block text-lg font-medium bg-blue-600 py-3 px-4 rounded-lg text-center transition duration-200">
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="mt-8">
+        <p class="text-sm text-center text-gray-400">&copy; 2024 Hanif dan Kawan-Kawan</p>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 bg-white p-10">
+      <h2 class="text-4xl font-bold mb-8">About Our Project</h2>
+      <p class="text-lg mb-8">This project introduces a worker safety detection tool using image processing and body temperature detection. The tool is integrated with an IoT-based alarm system to notify any violations in PPE compliance or abnormal body temperature, ensuring worker safety in industrial environments.</p>
+
+      <!-- Team Section -->
+      <h3 class="text-3xl font-bold mb-6">Our Team</h3>
+      <div class="flex flex-col items-center">
+        <!-- Leader -->
+        <div class="text-center mb-12">
+          <img src="image/leader.jpg" alt="Leader" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+          <h3 class="text-2xl font-bold">Muhammad Hanif Syauqi (2110932029)</h3>
+          <p>Leader of the project, overseeing all operations and ensuring the success of the project.</p>
+        </div>
+
+        <!-- Members -->
+        <div class="flex space-x-12">
+          <div class="text-center">
+            <img src="image/member1.jpg" alt="Member 1" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <h3 class="text-xl font-bold">Reza Rahman (2110932037)</h3>
+            <p>Responsible for the implementation of the thermal sensor integration and IoT-based system.</p>
+          </div>
+          <div class="text-center">
+            <img src="image/member2.jpg" alt="Member 2" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+            <h3 class="text-xl font-bold">Raihan Febriano (2110933004)</h3>
+            <p>Focused on image processing for PPE detection and contributing to documentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

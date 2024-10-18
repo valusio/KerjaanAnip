@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    function exportToExcel() {
+      var wb = XLSX.utils.table_to_book(document.getElementById('reportTable'), {sheet: "Riwayat Report"});
+      XLSX.writeFile(wb, 'Riwayat_Report.xlsx');
+    }
+
+    // Function to update the current time
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleString(); // Get local date and time
+      document.getElementById('currentTime').textContent = timeString;
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+  </script>
+</head>
+<body class="bg-gray-100">
+  <div class="flex h-screen">
+    <!-- Sidebar (similar to index.html) -->
+    <div class="w-1/5 bg-gray-900 text-white p-6 shadow-lg flex flex-col justify-between">
+      <!-- Logo -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold tracking-wide">Logo PT.XYZ</h1>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="space-y-4">
+          <li>
+            <a href="index.html" class="block text-lg font-medium bg-gray-800 py-3 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-200">
+              Main Page
+            </a>
+          </li>
+          <li>
+            <a href="riwayat.html" class="block text-lg font-medium bg-blue-600 py-3 px-4 rounded-lg text-center transition duration-200">
+              Riwayat
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="block text-lg font-medium bg-gray-800 py-3 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-200">
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="mt-8">
+        <p class="text-sm text-center text-gray-400">&copy; 2024 Hanif dan Kawan-Kawan</p>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 bg-white p-10">
+      <h2 class="text-4xl font-bold mb-8">Laporan Riwayat Pelanggaran</h2>
+
+      <!-- Display Current Time -->
+      <div class="mb-6">
+        <p class="text-xl font-semibold">Current Time: <span id="currentTime" class="font-mono"></span></p>
+      </div>
+
+      <!-- Table for Report -->
+      <div class="overflow-x-auto">
+        <table id="reportTable" class="min-w-full bg-white border-collapse border border-gray-300 shadow-md rounded-lg">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="py-3 px-6 text-left font-medium border-b border-gray-300">Tanggal</th>
+              <th class="py-3 px-6 text-left font-medium border-b border-gray-300">Waktu</th>
+              <th class="py-3 px-6 text-left font-medium border-b border-gray-300">Jumlah Pelanggar</th>
+              <th class="py-3 px-6 text-left font-medium border-b border-gray-300">Pelanggaran</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 px-6 border-b border-gray-300">2024-10-19</td>
+              <td class="py-3 px-6 border-b border-gray-300">10:30 AM</td>
+              <td class="py-3 px-6 border-b border-gray-300">5</td>
+              <td class="py-3 px-6 border-b border-gray-300">Pelanggaran Helm dan Wearpack</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-6 border-b border-gray-300">2024-10-18</td>
+              <td class="py-3 px-6 border-b border-gray-300">9:15 AM</td>
+              <td class="py-3 px-6 border-b border-gray-300">3</td>
+              <td class="py-3 px-6 border-b border-gray-300">Pelanggaran Kacamata</td>
+            </tr>
+            <!-- Add more rows here as needed -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Export Button -->
+      <div class="mt-6">
+        <button onclick="exportToExcel()" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+          Export to Excel
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
