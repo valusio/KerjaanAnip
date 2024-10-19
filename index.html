@@ -3,30 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Layout</title>
+  <title>Website Layout with Transparent Texture</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom CSS to apply wave texture with transparency */
+    .navbar-texture {
+      background-image: url('/image/navTexture.webp'); /* Ganti dengan link tekstur */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: rgba(0, 0, 0, 0.6); /* Warna hitam dengan transparansi 60% */
+      background-blend-mode: overlay; /* Menggabungkan warna dan tekstur */
+    }
+  </style>
 </head>
 <body class="bg-gray-100">
   <!-- Container -->
-  <div class="flex h-screen">
-    <!-- Sidebar -->
-    <div class="w-1/5 bg-gray-900 text-white p-6 shadow-lg flex flex-col justify-between">
-      <!-- Logo -->
+  <div class="flex flex-col md:flex-row h-screen">
+    <!-- Sidebar with texture and transparency -->
+    <div class="w-full md:w-1/5 navbar-texture text-white p-6 shadow-lg flex flex-col justify-between">
+      <!-- Logo Image -->
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold tracking-wide">Logo PT.XYZ</h1>
+        <img src="image/logo.jpg" alt="Logo" class="w-24 h-24 mx-auto rounded-lg object-cover">
       </div>
 
       <!-- Navigation Links -->
       <nav>
         <ul class="space-y-4">
           <li>
-            <a href="#" class="block text-lg font-medium bg-blue-600 py-3 px-4 rounded-lg text-center hover:bg-blue-700 transition duration-200">
-              Main Page
+            <a href="index.html" class="block text-lg font-medium bg-blue-600 py-3 px-4 rounded-lg text-center hover:bg-blue-700 transition duration-200">
+              Live Monitoring
             </a>
           </li>
           <li>
             <a href="riwayat.html" class="block text-lg font-medium bg-gray-800 py-3 px-4 rounded-lg text-center hover:bg-blue-600 transition duration-200">
-              Riwayat
+              Report
             </a>
           </li>
           <li>
@@ -37,36 +47,39 @@
         </ul>
       </nav>
 
-      <!-- Footer (optional) -->
+      <!-- Footer -->
       <div class="mt-8">
-        <p class="text-sm text-center text-gray-400">&copy; 2024 Hanif dan Kawan-Kawan</p>
+        <p class="text-sm text-center text-gray-400">&copy; PT. KBEH2R</p>
       </div>
     </div>
 
     <!-- Main Content Area -->
-    <div class="flex-1 bg-white p-10">
-      <h2 class="text-4xl font-bold mb-8">Main Content</h2> 
+    <div class="flex-1 bg-white flex flex-col p-4 md:p-10">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Camera View</h2>
 
       <!-- Camera Selection -->
-      <div class="flex justify-center space-x-4 mb-8">
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+      <div class="grid grid-cols-2 gap-4 sm:flex sm:justify-center sm:space-x-4 mb-8">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg shadow-md transition duration-300">
           Kamera 1
         </button>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg shadow-md transition duration-300">
           Kamera 2
         </button>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg shadow-md transition duration-300">
           Kamera 3
         </button>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg shadow-md transition duration-300">
           Kamera 4
         </button>
       </div>
 
-      <!-- Camera View -->
-      <div class="w-full h-96 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center">
-        <p class="text-xl font-medium text-gray-600">Main Content (Camera View)</p>
+      <!-- Camera View (Full height adjustment) -->
+      <div class="flex-1 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center mb-8">
+        <p class="text-lg md:text-xl font-medium text-gray-600">Main Content (Camera View)</p>
       </div>
+
+      <!-- Adding a small space at the bottom -->
+      <div class="mb-4"></div>
     </div>
   </div>
 </body>
