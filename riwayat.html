@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <style>
-    /* Custom CSS untuk background texture navbar */
+    /* Custom CSS for background texture navbar */
     .navbar-texture {
-      background-image: url('/image/navTexture.webp'); /* Ganti dengan link tekstur */
+      background-image: url('/image/navTexture.jpg'); /* Replace with actual texture link */
       background-size: cover;
       background-repeat: no-repeat;
-      background-color: rgba(0, 0, 0, 0.6); /* Warna hitam dengan transparansi 60% */
-      background-blend-mode: overlay; /* Menggabungkan warna dan tekstur */
+      background-color: rgba(0, 0, 0, 0.6); /* Black color with 60% transparency */
+      background-blend-mode: overlay; /* Blends color and texture */
     }
   </style>
 <head>
@@ -16,7 +16,7 @@
   <title>Riwayat Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Tambahkan Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     function exportToExcel() {
       var wb = XLSX.utils.table_to_book(document.getElementById('reportTable'), {sheet: "Riwayat Report"});
@@ -30,142 +30,12 @@
     }
 
     setInterval(updateTime, 1000);
-
-    // Data pelanggaran bulanan
-    const dataPelanggaranBulanan = [
-      { bulan: 'Januari', jumlah: 10 },
-      { bulan: 'Februari', jumlah: 15 },
-      { bulan: 'Maret', jumlah: 7 },
-      { bulan: 'April', jumlah: 5 },
-      { bulan: 'Mei', jumlah: 12 },
-      { bulan: 'Juni', jumlah: 8 },
-      { bulan: 'Juli', jumlah: 14 },
-      { bulan: 'Agustus', jumlah: 9 },
-      { bulan: 'September', jumlah: 11 },
-      { bulan: 'Oktober', jumlah: 13 },
-      { bulan: 'November', jumlah: 6 },
-      { bulan: 'Desember', jumlah: 9 }
-    ];
-
-    // Data pelanggaran berdasarkan APD
-    const dataAPD = [
-      { apd: 'Helm Safety', jumlah: 40 },
-      { apd: 'Baju Kerja', jumlah: 35 },
-      { apd: 'Face Shield', jumlah: 25 },
-      { apd: 'Masker', jumlah: 30 },
-      { apd: 'Sepatu', jumlah: 28 }
-    ];
-
-    // Buat Grafik
-    function createCharts() {
-      const ctx1 = document.getElementById('infografisChart1').getContext('2d');
-      const bulanLabels = dataPelanggaranBulanan.map(d => d.bulan);
-      const jumlahPelanggaran = dataPelanggaranBulanan.map(d => d.jumlah);
-
-      // Grafik 1: Pelanggaran per Bulan
-      new Chart(ctx1, {
-        type: 'line',
-        data: {
-          labels: bulanLabels,
-          datasets: [{
-            label: 'Jumlah Pelanggaran per Bulan',
-            data: jumlahPelanggaran,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Jumlah Pelanggaran'
-              }
-            },
-            x: {
-              title: {
-                display: true,
-                text: 'Bulan'
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            tooltip: {
-              callbacks: {
-                label: function(tooltipItem) {
-                  return 'Jumlah: ' + tooltipItem.raw;
-                }
-              }
-            }
-          }
-        }
-      });
-
-      // Grafik 2: Pelanggaran APD
-      const ctx2 = document.getElementById('infografisChart2').getContext('2d');
-      const apdLabels = dataAPD.map(d => d.apd);
-      const jumlahAPD = dataAPD.map(d => d.jumlah);
-
-      new Chart(ctx2, {
-        type: 'bar', // Menggunakan grafik batang
-        data: {
-          labels: apdLabels,
-          datasets: [{
-            label: 'Jumlah Pelanggaran APD',
-            data: jumlahAPD,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 2
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Jumlah Pelanggaran'
-              }
-            },
-            x: {
-              title: {
-                display: true,
-                text: 'Jenis APD'
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            tooltip: {
-              callbacks: {
-                label: function(tooltipItem) {
-                  return 'Jumlah: ' + tooltipItem.raw;
-                }
-              }
-            }
-          }
-        }
-      });
-    }
-
-    window.onload = createCharts; // Panggil fungsi createCharts setelah halaman dimuat
   </script>
 </head>
 <body class="bg-gray-100">
   <!-- Container -->
   <div class="flex flex-col md:flex-row h-screen">
-    <!-- Sidebar dengan tekstur -->
+    <!-- Sidebar with texture -->
     <div class="w-full md:w-1/5 navbar-texture text-white p-6 shadow-lg flex flex-col justify-between">
       <!-- Logo -->
       <div class="text-center mb-8">
@@ -199,27 +69,87 @@
           <table id="reportTable" class="min-w-full md:w-3/4 bg-white border-collapse border border-gray-300 shadow-md rounded-lg">
             <thead><tr class="bg-gray-100"><th class="py-2 md:py-3 px-4 md:px-6 text-left font-medium border-b border-gray-300">Tanggal</th><th class="py-2 md:py-3 px-4 md:px-6 text-left font-medium border-b border-gray-300">Waktu</th><th class="py-2 md:py-3 px-4 md:px-6 text-left font-medium border-b border-gray-300">Jumlah Pelanggar</th><th class="py-2 md:py-3 px-4 md:px-6 text-left font-medium border-b border-gray-300">Pelanggaran</th></tr></thead>
             <tbody>
+              <!-- Sample data generation for a week -->
               <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-19</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">10:30 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">5</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Helm dan Wearpack</td></tr>
               <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-18</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">9:15 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">3</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Kacamata</td></tr>
               <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-17</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">11:00 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Sepatu</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-16</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">8:00 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">4</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Masker</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-15</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2:30 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">6</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Face Shield</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-14</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">4:15 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">7</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Helm</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-13</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">9:45 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">3</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Wearpack</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-12</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">1:00 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">4</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Helm dan Sepatu</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-11</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">3:30 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">5</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Wearpack dan Kacamata</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-10</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">8:45 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">6</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Masker dan Face Shield</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-09</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">10:15 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">3</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Helm</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-08</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">11:30 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">8</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Sepatu dan Kacamata</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-07</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2:00 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">4</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Wearpack dan Masker</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-06</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">3:45 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">7</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Face Shield dan Helm</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-05</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">9:00 AM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">5</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Sepatu dan Kacamata</td></tr>
+              <tr><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">2024-10-04</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">12:00 PM</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">6</td><td class="py-2 md:py-3 px-4 md:px-6 border-b border-gray-300">Pelanggaran Masker</td></tr>
+              <!-- Add more rows as needed -->
             </tbody>
           </table>
         </div>
       </div>
 
       <!-- Right Column -->
-      <div class="w-full md:w-1/3 flex flex-col space-y-6">
-        <h2 class="text-2xl font-bold">Infografis Pelanggaran</h2>
-        <!-- Chart 1: Pelanggaran Bulanan -->
-        <div class="bg-gray-100 rounded-lg shadow-lg p-6">
-          <canvas id="infografisChart1"></canvas>
+      <div class="w-full md:w-1/3 space-y-6">
+        <!-- Chart Container -->
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <canvas id="chart1" width="400" height="400"></canvas>
         </div>
-        <!-- Chart 2: Pelanggaran APD -->
-        <div class="bg-gray-100 rounded-lg shadow-lg p-6">
-          <canvas id="infografisChart2"></canvas>
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <canvas id="chart2" width="400" height="400"></canvas>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    // Sample chart data generation
+    var ctx1 = document.getElementById('chart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        datasets: [{
+          label: 'Pelanggaran per Bulan',
+          data: [10, 12, 8, 15, 11, 9, 14, 6, 13, 7],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      }
+    });
+
+    var ctx2 = document.getElementById('chart2').getContext('2d');
+    var chart2 = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Helm', 'Wearpack', 'Sepatu', 'Kacamata', 'Masker', 'Face Shield'],
+        datasets: [{
+          label: 'Pelanggaran APD',
+          data: [5, 3, 2, 4, 6, 7],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+  </script>
 </body>
 </html>
